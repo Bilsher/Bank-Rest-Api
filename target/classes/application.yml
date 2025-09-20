@@ -1,0 +1,20 @@
+database: mysql
+
+spring:
+  sql:
+    init:
+      schema-locations: classpath*:db/${database}/schema.sql
+      data-locations: classpath*:db/${database}/data.sql
+      mode: always
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/BankRestDB
+    username: root
+    password: 95832
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
